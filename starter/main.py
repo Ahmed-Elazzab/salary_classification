@@ -19,9 +19,6 @@ model = pickle.load(open(model_path, 'rb'))
 encoder = pickle.load(open(encoder_path, 'rb'))
 lb = pickle.load(open(lb_path, 'rb'))
 
-# Declare the data object with its components and their type.
-# see https://archive.ics.uci.edu/ml/datasets/census+income
-
 
 class Attributes(BaseModel):
     age: int = Field(None, example=39)
