@@ -17,9 +17,9 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
 
 file_dir = os.path.dirname(os.path.realpath(__file__))
 
-model_path = os.path.join(file_dir, "model/model.pkl")
-encoder_path = os.path.join(file_dir, "model/encoder.pkl")
-lb_path = os.path.join(file_dir, "model/label_binarizer.pkl")
+model_path = os.path.join(file_dir, "starter/model/model.pkl")
+encoder_path = os.path.join(file_dir, "starter/model/encoder.pkl")
+lb_path = os.path.join(file_dir, "starter/model/label_binarizer.pkl")
 
 model = pickle.load(open(model_path, "rb"))
 encoder = pickle.load(open(encoder_path, "rb"))
