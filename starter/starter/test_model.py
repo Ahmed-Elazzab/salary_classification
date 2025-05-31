@@ -29,7 +29,7 @@ def data():
     """
     Extract the data
     """
-    data_path = os.path.join(file_dir, "data/clean_census.csv")
+    data_path = os.path.join(file_dir, "../data/clean_census.csv")
     return pd.read_csv(data_path)
 
 @pytest.fixture(scope="module")
@@ -71,7 +71,7 @@ def test_is_model():
     """
     Check saved model is present
     """
-    savepath=os.path.join(file_dir, "model/trained_model.pkl")
+    savepath=os.path.join(file_dir, "../model/trained_model.pkl")
     if os.path.isfile(savepath):
         try:
             _=pickle.load(open(savepath, 'rb'))
@@ -84,7 +84,7 @@ def test_inference_working(train_dataset):
     """
     X_train, _=train_dataset
 
-    model_path=os.path.join(file_dir,"model/model.pkl")
+    model_path=os.path.join(file_dir,"../model/model.pkl")
     model=pickle.load(open(model_path, 'rb'))
 
     try:
@@ -99,11 +99,12 @@ def test_is_model_fitted(train_dataset):
     """
 
     X_train, _=train_dataset
-    model_path=os.path.join(file_dir,"model/model.pkl")
+    model_path=os.path.join(file_dir,"../model/model.pkl")
     model=pickle.load(open(model_path, 'rb'))
 
     try:
         model.predict(X_train)
     except BaseException:
         assert ('Model not fitted')
+
 
