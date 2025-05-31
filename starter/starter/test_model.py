@@ -4,8 +4,8 @@ import pickle
 import pandas as pd
 import pytest
 from sklearn.model_selection import train_test_split
-from starter.ml.data import process_data
-from starter.ml.model import inference
+from starter.starter.ml.data import process_data
+from starter.starter.ml.model import inference
 
 file_dir = os.path.dirname(__file__)
 sys.path.insert(0, file_dir)
