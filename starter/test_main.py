@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from main import app
+from starter.main import app
 
 client = TestClient(app)
 
@@ -10,7 +10,7 @@ def test_get_root():
     assert response.json() == "Hello World!"
 
 
-def test_predict_zero():  # post sample: <=50k:
+def test_predict_zero():  
     data = {
         "age": 39,
         "workclass": "State-gov",

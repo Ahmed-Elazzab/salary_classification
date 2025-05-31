@@ -17,7 +17,7 @@ data = {
     "native-country": "India"
 }
 
-response = requests.post("https://immense-dusk-54638-1cdf10467aa5.herokuapp.com/predict", json=data)
+response = requests.post("https://immense-dusk-54638-1cdf10467aa5.herokuapp.com/inference", json=data)
 
 print(response.status_code)
 print(response.text)
