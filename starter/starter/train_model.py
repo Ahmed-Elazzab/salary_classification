@@ -1,22 +1,22 @@
-from ml.model import train_model, inference, compute_model_metrics
-from ml.data import process_data
-from slicing import slice_metrics
 import os
-import sys
-import pandas as pd
 import pickle
+import sys
+
+import pandas as pd
+from ml.data import process_data
+from ml.model import compute_model_metrics, inference, train_model
 from sklearn.model_selection import train_test_split
+from slicing import slice_metrics
 
 # Add the necessary imports for the starter code.
 file_dir = os.path.dirname(__file__)
 sys.path.insert(0, file_dir)
 
 # Add code to load in the data.
-data = pd.read_csv(os.path.join(file_dir, '../data/clean_census.csv'))
+data = pd.read_csv(os.path.join(file_dir, "../data/clean_census.csv"))
 
 # train-test split.
-train, test = train_test_split(
-    data, test_size=0.2, random_state=42)
+train, test = train_test_split(data, test_size=0.2, random_state=42)
 
 cat_features = [
     "workclass",
@@ -34,7 +34,12 @@ X_train, y_train, encoder, lb = process_data(
 
 # Process the test data with the process_data function.
 X_test, y_test, encoder, lb = process_data(
-    test, categorical_features=cat_features, label="salary", training=False, encoder=encoder, lb=lb
+    test,
+    categorical_features=cat_features,
+    label="salary",
+    training=False,
+    encoder=encoder,
+    lb=lb,
 )
 
 # Train and save a model.
@@ -60,5 +65,4 @@ print(f"Recall: {recall}")
 print(f"F1: {f_one}")
 
 # Slicing
-slice_metrics(model, encoder, lb, data, 'workclass',
-              categorical_features=cat_features)
+slice_metrics(model, encoder, lb, data, "workclass", categorical_features=cat_features)
