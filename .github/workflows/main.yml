@@ -2,9 +2,9 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]  # "master" in forked repo
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]  # "master" in forked repo
+    branches: [ "main" ]
 
 permissions:
   contents: read
